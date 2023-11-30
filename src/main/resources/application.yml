@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: MarvelService
+  profiles:
+        active: local
+  h2:
+    console.enabled: true
+  
+  datasource:
+    url: jdbc:h2:mem:marveldb
+    username: marveluser
+    password: m4rv31u53r
+    driverClassName: org.h2.Driver
+          
+         
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    
+  data:
+    jpa:
+      repositories:
+        enabled: true
+  servlet:
+      multipart:
+         max-file-size: 20MB
+         max-request-size: 20MB
+        
+server:
+  port: 8081
+  compression:
+    enabled: true
+    mimeTypes: text/xml, text/css, text/html, application/json
+    minResponseSize: 4096
+  servlet:
+    context-path: /marvel-service
+    
+      
+    
+logging:
+  file:
+    name: /opt/apps/logs/log4j/${spring.application.name}.log
+  level:
+    org:
+      springframework:
+        web: INFO
+    io:
+      jaegertracing: WARN
+      
+security:
+  publicKey:    f75f989c305b4e6a240daf5c3f7ecaed
+  privateKey:   e3968f2fc08f2abb143061ce4f324f5c361a7829
+  hash:         9cc1851fe45bdf85f5fd81d74fb45fff
+  urlMarvenApi: http://gateway.marvel.com/v1/public/characters
+  

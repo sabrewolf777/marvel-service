@@ -1,10 +1,10 @@
-package com.mx.MarvelService;
+package com.mx.marvelservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MarvelServiceApplicationTests {
+class MarvelserviceApplicationTests {
 
 	@Test
 	void contextLoads() {
